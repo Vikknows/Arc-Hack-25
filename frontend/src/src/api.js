@@ -1,1 +1,8 @@
-export const API_BASE = "http://127.0.0.1:8000";   // backend local URL
+const normaliseBase = (value) => {
+  if (!value) return ''
+  const trimmed = value.trim()
+  if (!trimmed) return ''
+  return trimmed.replace(/\/+$/, '')
+}
+
+export const API_BASE = normaliseBase(import.meta.env.VITE_API_BASE ?? '')
