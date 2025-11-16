@@ -1,0 +1,16 @@
+# Python venvs
+venv/
+backend/venv/
+
+# Python caches
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+
+# Node stuff (in case you use Bridge Kit)
+node_modules/
+
+# OS junk
+.DS_Store
