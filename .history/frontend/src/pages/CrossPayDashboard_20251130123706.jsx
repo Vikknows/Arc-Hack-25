@@ -92,13 +92,13 @@ export default function CrossPayDashboard() {
 
       console.log('POST /api/optimisation/tick', body);
 
-      const resp = await postJson('/api/optimise', body);
+      const resp = await postJson('/api/optimisation/tick', body);
       console.log('Optimisation response', resp);
       setRoutingState(resp);
       setOptimStatus(`Converted this run: ${resp.converted_this_run.toFixed(2)} USDC`);
     } catch (err) {
       console.error('Optimisation error', err);
-      setOptimStatus('No optimisation applied this tick');
+      setOptimStatus('Optimisation call failed. Check the optimisation routes.');
     }
   };
 

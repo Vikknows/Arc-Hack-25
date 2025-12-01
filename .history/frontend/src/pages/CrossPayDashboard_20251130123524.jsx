@@ -92,13 +92,13 @@ export default function CrossPayDashboard() {
 
       console.log('POST /api/optimisation/tick', body);
 
-      const resp = await postJson('/api/optimise', body);
+      const resp = await postJson('/api/optimisation/tick', body);
       console.log('Optimisation response', resp);
       setRoutingState(resp);
       setOptimStatus(`Converted this run: ${resp.converted_this_run.toFixed(2)} USDC`);
     } catch (err) {
       console.error('Optimisation error', err);
-      setOptimStatus('No optimisation applied this tick');
+      setOptimStatus('Optimisation call failed. Check the optimisation routes.');
     }
   };
 
@@ -291,18 +291,6 @@ export default function CrossPayDashboard() {
           <p className="panel__status">{walletStatus}</p>
         </section>
       </div>
-
-      <div className="dashboard-how">
-        <h3>How this demo works</h3>
-        <ul>
-          <li>1. You deposit a salary in USDC into the CrossPay engine.</li>
-          <li>2. The backend splits it into an instant slice and an optimised queue.</li>
-          <li>3. The optimiser simulates different market conditions and FX rates.</li>
-          <li>4. Extra value vs an instant conversion baseline is tracked over time.</li>
-          <li>5. Circle Wallets API is queried to show the underlying Arc wallet.</li>
-        </ul>
-      </div>
-
 
       <div className="dashboard__grid">
         {/* 4. Optimisation engine */}

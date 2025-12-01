@@ -1,4 +1,4 @@
-const API_BASE = 'https://crosspay-backend-t0hj.onrender.com';
+const API_BASE = 'http://127.0.0.1:8000';
 
 async function getJson(path) {
   const res = await fetch(`${API_BASE}${path}`);
